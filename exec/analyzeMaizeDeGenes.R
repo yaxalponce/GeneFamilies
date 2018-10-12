@@ -98,6 +98,8 @@ overrep.mapManBins.genes.df <- Reduce(rbind, lapply(overrep.mapManBins,
         mms.v.sgltc.de.genes.mmBin <- binGenes.df[which(binGenes.df$IDENTIFIER.san %in% 
             toLowerCutTail(mms.v.sgltc.de.genes)), c("IDENTIFIER.san", 
             "BINCODE", "NAME")]
+
+#' Above Venn Diagram reveals only two sets are of interest. Venn with
         mms.v.sgltc.de.genes.mmBin$DEG.set <- "mms.v.sgltc"
         # Generate a Venn Diagramm:
         mmBin.venn.lst <- list(mmbs.v.sgstc = unique(mmbs.v.sgstc.de.genes.mmBin$IDENTIFIER.san), 

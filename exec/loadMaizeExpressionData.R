@@ -100,8 +100,6 @@ pdf(file.path(input.args[[7]], "inst", "maize_ustilago_de_venn_diagr.pdf"))
 plot(maize.ustilago.de.venn)
 dev.off()
 
-
-#' Above Venn Diagram reveals only two sets are of interest. Venn with
 #' house-keeping and cell-cycle genes:
 venn.house.cell.cyc.lst <- list(house = toLowerCutTail(house), cell.cycle = toLowerCutTail(cell.cycle$V1), 
     mmbs.v.sgstc = mmbs.v.sgstc.de.genes, mms.v.sgltc = mms.v.sgltc.de.genes, 
