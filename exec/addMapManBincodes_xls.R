@@ -66,6 +66,10 @@ maize.w.mapMan <- intersect(toLowerCutTail(names(maize.aas)), toLowerCutTail(mai
 maize.genes.expr <- c()
 baseDGE <- c()
 
+#' Read list with corrected names
+Name_fixed <- read.table("inst/list_corrected_names.txt", header=T)
+Name_fixed <- unlist(Name_fixed)
+
 #` Path to folder that holds the DGE results
 dir <- input.args[[1]]
 
@@ -80,7 +84,11 @@ for (i in 1:length(file_list)){
   assign(basename[i], 
   read.xls(paste(dir, file_list[i], sep=''))
   ) 
-  
+ 
+  # Substitute Name column with the correpondign Ensemble nomenclature.
+  renameCommand <- paste(basename[i], "$Name <- Name_fixed", sep = "")
+  eval(parse(text = renameCommand ))
+
   #` Sanitize Gene Identifiers
 	# B73_BIODYN_Root_vs_B73_CONMIN_Root_down$IDENTIFIER.san <- toLowerCutTail(B73_BIODYN_Root_vs_B73_CONMIN_Root_down$X)
 
