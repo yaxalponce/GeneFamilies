@@ -151,5 +151,5 @@ for (i in 1:length(basename)){
 
 message("Saving results")
 fisher_results <- ls(pattern = "*_fish")
-save(list = basename, file = file.path(input.args[[2]], "ReconstructResults", "DGE__RootwMapManBins.RData")
-save(list = fisher_results, file = file.path(input.args[[2]], "ReconstructResults", "DGE_RootFisher.RData")
+save(list = basename, file = file.path(input.args[[2]], "ReconstructResults", "DGE_RootwMapManBins.RData"))
+save(list = fisher_results, file = file.path(input.args[[2]], "ReconstructResults", "DGE_RootFisher.RData"))
