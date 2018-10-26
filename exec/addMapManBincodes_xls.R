@@ -126,8 +126,8 @@ for (i in 1:length(file_list)){
 
   #' Write tables with MapMan Info:
 	#` write.table(B73_BIODYN_Root_vs_B73_CONMIN_Root_down, file.path(input.args[[2]], "ReconstructXls", "B73_BIODYN_Root_vs_B73_CONMIN_Root_down_wMapMan.txt"), row.names = FALSE, sep = "\t")
-##  writeMapManCommand <- paste('write.table(', baseDGE[i], ', file.path(input.args[[2]], "ReconstructXls", "', baseDGE[i], '_wMapMan.txt"), row.names = FALSE, sep = "\t")', sep = '')
-##  eval(parse(text = writeMapManCommand ))
+  writeMapManCommand <- paste('write.table(', baseDGE[i], ', file.path(input.args[[2]], "ReconstructXls", "', baseDGE[i], '_wMapMan.txt"), row.names = FALSE, sep = "\t")', sep = '')
+  eval(parse(text = writeMapManCommand ))
 
   
 }
@@ -137,7 +137,6 @@ save(list = baseDGE, file = file.path(input.args[[2]], "ReconstructXls", "DGE_Le
 maize.expr.w.mapMan <- intersect(maize.w.mapMan, toLowerCutTail(maize.genes.expr))
 mmBins <- unique(maize.mapMan$BINCODE)
 
-<< --SKIPPING_FISHER--
 #' Fisher tests:
   #` B73_BIODYN_Root_vs_B73_CONMIN_Root_down_fish <- maizeFischerTest(B73_BIODYN_Root_vs_B73_CONMIN_Root_down$IDENTIFIER.san, setdiff(maize.expr.w.mapMan, B73_BIODYN_Root_vs_B73_CONMIN_Root_down$IDENTIFIER.san))
 
@@ -165,5 +164,3 @@ for (i in 1:length(basename)){
 message("Saving results")
 fisher_results <- ls(pattern = "*_fish")
 save(list = fisher_results, file = file.path(input.args[[2]], "ReconstructXls", "DGE_LeafFisher.RData"))
-
---SKIPPING_FISHER--
