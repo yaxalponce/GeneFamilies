@@ -66,7 +66,7 @@ maize.w.mapMan <- intersect(toLowerCutTail(names(maize.aas)), toLowerCutTail(mai
 maize.genes.expr <- c()
 baseDGE <- c()
 
-#' Read list with corrected names
+#' Read list with corrected names. The order MUST be the same as in the samples.
 Name_fixed <- read.table("inst/list_corrected_names.txt", header=T)
 Name_fixed <- unlist(Name_fixed)
 
